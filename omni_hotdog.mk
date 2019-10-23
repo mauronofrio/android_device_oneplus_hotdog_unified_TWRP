@@ -15,7 +15,7 @@
 #
 
 # Release name
-PRODUCT_RELEASE_NAME := guacamole
+PRODUCT_RELEASE_NAME := hotdog
 
 $(call inherit-product, build/target/product/embedded.mk)
 
@@ -23,19 +23,19 @@ $(call inherit-product, build/target/product/embedded.mk)
 $(call inherit-product, vendor/omni/config/common.mk)
 
 # Inherit from hardware-specific part of the product configuration
-$(call inherit-product, device/oneplus/guacamole/device.mk)
+$(call inherit-product, device/oneplus/hotdog/device.mk)
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := guacamole
-PRODUCT_NAME := omni_guacamole
+PRODUCT_DEVICE := hotdog
+PRODUCT_NAME := omni_hotdog
 PRODUCT_BRAND := OnePlus
-PRODUCT_MODEL := GM1917
+PRODUCT_MODEL := HD1910
 PRODUCT_MANUFACTURER := OnePlus
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=OnePlus7Pro \
-    BUILD_PRODUCT=OnePlus7Pro \
-    TARGET_DEVICE=OnePlus7Pro
+    PRODUCT_NAME=OnePlus7TPro \
+    BUILD_PRODUCT=OnePlus7TPro \
+    TARGET_DEVICE=OnePlus7TPro
 
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
     ro.product.model \

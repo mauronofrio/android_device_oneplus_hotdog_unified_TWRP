@@ -1,1 +1,1 @@
-add_lunch_combo omni_guacamole-eng
+add_lunch_combo omni_hotdog-eng

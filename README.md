@@ -1,7 +1,7 @@
-# Device Tree for OnePlus 7/7 Pro/7 Pro 5G (guacamole, guacamoleb, guacamolec)
+# Device Tree for OnePlus 7T Pro(hotdog)
 
-The OnePlus 7 Pro (codenamed _"guacamole"_) is a flagship smartphone from OnePlus.
-It was released in May 2019.
+The OnePlus 7T Pro (codenamed _"hotdog"_) is a flagship smartphone from OnePlus.
+It was released in September 2019.
 
 
 
@@ -19,7 +19,7 @@ Then add these string to .repo/manifests/remove.xml
 Then add these projects to .repo/local_manifests/roomservice.xml (If you don't have it, you can add them to .repo/manifest.xml): 
 
 ```xml
-<project name="mauronofrio/android_device_oneplus_guacamole_TWRP" path="device/oneplus/guacamole" remote="github" revision="android-9.0" />
+<project name="mauronofrio/android_device_oneplus_hotdog_TWRP" path="device/oneplus/hotdog" remote="github" revision="android-9.0" />
 ```
 
 Now you can sync your source:
@@ -36,17 +36,15 @@ Finally execute these:
 . build/envsetup.sh
 export ALLOW_MISSING_DEPENDENCIES=true
 export LC_ALL=C
-lunch omni_guacamole-eng 
+lunch omni_hotdog-eng 
 mka adbd recoveryimage 
 ```
 
 To test it:
 
 ```
-fastboot boot out/target/product/guacamole/recovery.img
+fastboot boot out/target/product/hotdog/recovery.img
 ```
 
-Kernel Source: https://gitlab.com/HolyAngel/op7
+Kernel Source: precompiled stock one
 ## Credits
-I want to say a big thanks to @twinnfamous
-Thanks to @dianlujitao for the base multidevice commit: https://github.com/TeamWin/android_device_oneplus_oneplus3/tree/android-9.0/init

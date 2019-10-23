@@ -39,89 +39,85 @@
 namespace android {
 namespace init {
 
-void load_op7pro(const char *model) {
+void load_op7tpro(const char *model) {
     property_set("ro.product.model", model);
-    property_set("ro.product.name", "OnePlus7Pro");
-    property_set("ro.build.product", "OnePlus7Pro");
-    property_set("ro.product.device", "OnePlus7Pro");
-    property_set("ro.vendor.product.device", "OnePlus7Pro");
-    property_set("ro.display.series", "OnePlus 7 Pro");
+    property_set("ro.product.name", "OnePlus7TPro");
+    property_set("ro.build.product", "OnePlus7TPro");
+    property_set("ro.product.device", "OnePlus7TPro");
+    property_set("ro.vendor.product.device", "OnePlus7TPro");
+    property_set("ro.display.series", "OnePlus 7T Pro");
 }
 
-void load_op7pro5g(const char *model) {
+void load_op7tpro5g(const char *model) {
     property_set("ro.product.model", model);
-    property_set("ro.product.name", "OnePlus7ProNR");
-    property_set("ro.build.product", "OnePlus7ProNR");
-    property_set("ro.product.device", "OnePlus7ProNR");
-    property_set("ro.vendor.product.device", "OnePlus7ProNR");
-    property_set("ro.display.series", "OnePlus 7 Pro 5G");
+    property_set("ro.product.name", "OnePlus7TProNR");
+    property_set("ro.build.product", "OnePlus7TProNR");
+    property_set("ro.product.device", "OnePlus7TProNR");
+    property_set("ro.vendor.product.device", "OnePlus7TProNR");
+    property_set("ro.display.series", "OnePlus 7T Pro 5G");
 }
 
-void load_op7(const char *model) {
+void load_op7t(const char *model) {
     property_set("ro.product.model", model);
-    property_set("ro.product.name", "OnePlus7");
-    property_set("ro.build.product", "OnePlus7");
-    property_set("ro.product.device", "OnePlus7");
-    property_set("ro.vendor.product.device", "OnePlus7");
-    property_set("ro.display.series", "OnePlus 7");
+    property_set("ro.product.name", "OnePlus7T");
+    property_set("ro.build.product", "OnePlus7T");
+    property_set("ro.product.device", "OnePlus7T");
+    property_set("ro.vendor.product.device", "OnePlus7T");
+    property_set("ro.display.series", "OnePlus 7T");
 }
 
 void vendor_load_properties() {
     int project_name = stoi(android::base::GetProperty("ro.boot.project_name", ""));
     int rf_version = stoi(android::base::GetProperty("ro.boot.rf_version", ""));
     switch(project_name){
-		case 18821:
+		case 19801:
 			switch (rf_version){
 				case 1:
 					/* China*/
-					load_op7pro("GM1910");
+					load_op7tpro("HD1910");
 					break;
 				case 3:
 					/* India*/
-					load_op7pro("GM1911");
+					load_op7tpro("HD1911");
 					break;
 				case 4:
 					/* Europe */
-					load_op7pro("GM1913");
+					load_op7tpro("HD1913");
 					break;
 				case 5:
 					/* Global / US Unlocked */
-					load_op7pro("GM1917");
+					load_op7tpro("HD1917");
 					break;
 				default:
 					/* Generic*/
-					load_op7pro("GM1917");
+					load_op7tpro("HD1917");
 					break;
 			}
-		case 18831:
+		case 19861:
 			/* T-Mobile */
-			load_op7pro("GM1915");
+			load_op7tpro("HD1915");
 			break;
-		case 18827:
-			/* 5g Europe */
-			load_op7pro5g("GM1920");
-			break;
-		case 18857:
+		case 18865:
 			switch (rf_version){
 				case 1:
 					/* China*/
-					load_op7("GM1900");
+					load_op7t("HD1900");
 					break;
 				case 3:
 					/* India*/
-					load_op7("GM1901");
+					load_op7t("HD1901");
 					break;
 				case 4:
 					/* Europe */
-					load_op7("GM1903");
+					load_op7t("HD1903");
 					break;
 				case 5:
 					/* Global / US Unlocked */
-					load_op7("GM1907");
+					load_op7t("HD1907");
 					break;
 				default:
 					/* Generic */
-					load_op7("GM1907");
+					load_op7t("HD1907");
 					break;
 			}
 	}

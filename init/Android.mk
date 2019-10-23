@@ -22,7 +22,7 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_C_INCLUDES := \
     system/core/base/include \
     system/core/init
-LOCAL_SRC_FILES := init_oneplus7pro.cpp
-LOCAL_MODULE := libinit_oneplus7pro
+LOCAL_SRC_FILES := init_oneplus7t.cpp
+LOCAL_MODULE := libinit_oneplus7t
 
 include $(BUILD_STATIC_LIBRARY)

@@ -49,7 +49,7 @@ BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom androidboot.console=ttyMSM0 an
 BOARD_KERNEL_CMDLINE += skip_override androidboot.fastboot=1
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
-TARGET_PREBUILT_KERNEL := device/oneplus/guacamole/prebuilt/Image.gz-dtb
+TARGET_PREBUILT_KERNEL := device/oneplus/hotdog/prebuilt/Image.gz-dtb
 
 # Platform
 TARGET_BOARD_PLATFORM := msmnile
@@ -76,8 +76,8 @@ BOARD_USES_RECOVERY_AS_BOOT := true
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 
 # Partitions (listed in the file) to be wiped under recovery.
-TARGET_RECOVERY_WIPE := device/oneplus/guacamole/recovery.wipe
-TARGET_RECOVERY_FSTAB := device/oneplus/guacamole/recovery.fstab
+TARGET_RECOVERY_WIPE := device/oneplus/hotdog/recovery.wipe
+TARGET_RECOVERY_FSTAB := device/oneplus/hotdog/recovery.fstab
 
 
 # Workaround for error copying vendor files to recovery ramdisk
@@ -85,8 +85,8 @@ BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_VENDOR := vendor
 
 #Init
-TARGET_INIT_VENDOR_LIB := libinit_oneplus7pro
-TARGET_RECOVERY_DEVICE_MODULES := libinit_oneplus7pro
+TARGET_INIT_VENDOR_LIB := libinit_oneplus7t
+TARGET_RECOVERY_DEVICE_MODULES := libinit_oneplus7t
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
 
 # Recovery
@@ -138,10 +138,8 @@ BOARD_USES_METADATA_PARTITION := true
 # Extras
 BOARD_SUPPRESS_SECURE_ERASE := true
 TW_USE_LEDS_HAPTICS := true
-USE_RECOVERY_INSTALLER := true
-RECOVERY_INSTALLER_PATH := device/oneplus/guacamole/installer
 TW_EXCLUDE_TWRPAPP := true
-TW_INCLUDE_REPACKTOOLS := true
+#TW_INCLUDE_REPACKTOOLS := true
 TW_HAS_EDL_MODE := true
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
