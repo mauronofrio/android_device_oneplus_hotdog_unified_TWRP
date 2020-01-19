@@ -95,7 +95,7 @@ void vendor_load_properties() {
 			}
 		case 19861:
 			/* T-Mobile */
-			load_op7tpro("HD1915");
+			load_op7tpro5g("HD1925");
 			break;
 		case 18865:
 			switch (rf_version){
