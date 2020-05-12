@@ -23,7 +23,7 @@
 # *not* include it on all devices, so it is safe even with hardware-specific
 # components.
 
-LOCAL_PATH := device/oneplus/guacamole
+LOCAL_PATH := device/oneplus/hotdog
 
 # Architecture
 TARGET_ARCH := arm64
@@ -52,11 +52,11 @@ BUILD_BROKEN_DUP_RULES := true
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 swiotlb=2048 firmware_class.path=/vendor/firmware_mnt/image loop.max_part=7 androidboot.usbcontroller=a600000.dwc3 skip_override androidboot.fastboot=1
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
-TARGET_PREBUILT_KERNEL := device/oneplus/guacamole/prebuilt/Image.gz
+TARGET_PREBUILT_KERNEL := device/oneplus/hotdog/prebuilt/Image.gz
 BOARD_BOOT_HEADER_VERSION := 2
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
-BOARD_PREBUILT_DTBIMAGE_DIR := device/oneplus/guacamole/prebuilt/dtb.img
+BOARD_PREBUILT_DTBIMAGE_DIR := device/oneplus/hotdog/prebuilt/dtb.img
 BOARD_DTB_OFFSET := 0x01f00000
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION) --dtb_offset $(BOARD_DTB_OFFSET) --dtb $(BOARD_PREBUILT_DTBIMAGE_DIR)
 
@@ -80,13 +80,19 @@ BOARD_VENDORIMAGE_PARTITION_SIZE := 1073741824
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
+BOARD_SUPER_PARTITION_GROUPS := google_dynamic_partitions
+BOARD_GOOGLE_DYNAMIC_PARTITIONS_PARTITION_LIST := \
+    system \
+    vendor \
+    product
+
 TARGET_NO_KERNEL := false
 TARGET_NO_RECOVERY := false
 BOARD_USES_RECOVERY_AS_BOOT := true
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 
 # Partitions (listed in the file) to be wiped under recovery.
-TARGET_RECOVERY_WIPE := device/oneplus/guacamole/recovery.wipe
+TARGET_RECOVERY_WIPE := device/oneplus/hotdog/recovery.wipe
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery.fstab
 
 # Workaround for error copying vendor files to recovery ramdisk
@@ -145,9 +151,8 @@ BOARD_PROVIDES_GPTUTILS := true
 BOARD_SUPPRESS_SECURE_ERASE := true
 TW_USE_LEDS_HAPTICS := true
 USE_RECOVERY_INSTALLER := true
-RECOVERY_INSTALLER_PATH := device/oneplus/guacamole/installer
+RECOVERY_INSTALLER_PATH := device/oneplus/hotdog/installer
 TW_EXCLUDE_TWRPAPP := true
-TW_INCLUDE_REPACKTOOLS := true
 TW_HAS_EDL_MODE := true
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true

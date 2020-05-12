@@ -21,5 +21,5 @@ soong_namespace {
 cc_library {
     name: "bootctrl.msmnile",
     defaults: ["bootctrl_hal_defaults"],
-    static_libs: ["libgptutils.oneplus7pro"],
+    static_libs: ["libgptutils.oneplus7tpro"],
 }

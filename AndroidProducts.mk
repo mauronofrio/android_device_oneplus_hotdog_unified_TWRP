@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_guacamole.mk
+    $(LOCAL_DIR)/omni_hotdog.mk
 
 COMMON_LUNCH_CHOICES := \
-    omni_guacamole-user \
-    omni_guacamole-userdebug \
-    omni_guacamole-eng
+    omni_hotdog-user \
+    omni_hotdog-userdebug \
+    omni_hotdog-eng

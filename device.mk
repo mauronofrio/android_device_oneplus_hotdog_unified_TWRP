@@ -1,5 +1,5 @@
 
-LOCAL_PATH := device/oneplus/guacamole
+LOCAL_PATH := device/oneplus/hotdog
 
 # define hardware platform
 PRODUCT_PLATFORM := msmnile

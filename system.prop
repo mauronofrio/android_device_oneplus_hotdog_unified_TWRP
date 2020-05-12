@@ -2,4 +2,5 @@ ro.display.series=OnePlus 7 Pro
 ro.product.board=msmnile
 ro.board.platform=msmnile
 vendor.gatekeeper.disable_spu=true
+ro.boot.dynamic_partitions=true
 ro.adb.secure=0
