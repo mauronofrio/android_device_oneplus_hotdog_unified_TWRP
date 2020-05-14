@@ -3,6 +3,7 @@
 /system		ext4	system					                            flags=slotselect;logical
 /vendor		ext4	vendor					                            flags=slotselect;display="Vendor";logical
 /product	ext4	product					                            flags=slotselect;display="Product";logical
+/odm		ext4	odm						                            flags=slotselect;display="Odm";logical
 /metadata	ext4	/dev/block/bootdevice/by-name/metadata 					
 /data		ext4	/dev/block/bootdevice/by-name/userdata					flags=fileencryption=ice:aes-256-cts;keydirectory=/metadata/vold/metadata_encryption
 /firmware	vfat	/dev/block/bootdevice/by-name/modem					flags=slotselect;display="Firmware";mounttodecrypt;fsflags=ro
