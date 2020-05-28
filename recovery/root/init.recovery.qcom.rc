@@ -116,7 +116,7 @@ service time_daemon /sbin/time_daemon
     disabled
     seclabel u:r:recovery:s0
 
-service patchreserve /sbin/patchreserve.sh
+service ashmemd /sbin/ashmemd
     user root
     group root
     disabled
@@ -136,6 +136,7 @@ on boot
 
 on init
     start logd
+    start ashmemd
     start hwservicemanager
     start boot-1-0
     start prepdecrypt
