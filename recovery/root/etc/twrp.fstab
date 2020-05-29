@@ -1,9 +1,9 @@
 # mount point	fstype	device					device2				flags
 /boot		emmc	/dev/block/bootdevice/by-name/boot					flags=slotselect
-system		/system			ext4		slotselect;logical
-vendor			/vendor			ext4		slotselect;display="Vendor";logical
-product		/product		ext4			slotselect;display="Product";logical
-odm			/odm		ext4				slotselect;display="Odm";logical
+/system_root   ext4    /dev/block/mapper/system                                  flags=slotselect;display="System";backup=0;logical
+/vendor        ext4    /dev/block/mapper/vendor                                  flags=slotselect;display="Vendor";backup=0;logical
+/product       ext4    /dev/block/mapper/product                                 flags=slotselect;display="Product";backup=0;logical
+/odm           ext4    /dev/block/mapper/odm                                     flags=slotselect;display="ODM";backup=0;logical
 /metadata	ext4	/dev/block/bootdevice/by-name/metadata 					
 /data		ext4	/dev/block/bootdevice/by-name/userdata					flags=fileencryption=ice:aes-256-cts;keydirectory=/metadata/vold/metadata_encryption
 /firmware	vfat	/dev/block/bootdevice/by-name/modem					flags=slotselect;display="Firmware";mounttodecrypt;fsflags=ro
