@@ -123,6 +123,13 @@ service ashmemd /sbin/ashmemd
     oneshot
     seclabel u:r:recovery:s0
 
+service unified-script /sbin/unified-script.sh
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
+
 # This helps fix ld.config.txt errors from the linker on Android 8.1+
 service ldconfigtxt /sbin/touch /sbin/ld.config.txt
     oneshot
@@ -133,6 +140,8 @@ on boot
     setprop sys.usb.config adb
     write /proc/touchpanel/gesture_enable 1
     write /sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pmi8998@2:qcom,qpnp-smb2/power_supply/usb/otg_switch 1
+    chmod 0777 /sbin/unified-script.sh
+    start unified-script
 
 on init
     start logd
