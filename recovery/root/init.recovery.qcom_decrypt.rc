@@ -1,0 +1,57 @@
+import /init.recovery.qcom_decrypt.fbe.rc
+
+on fs
+    # needed to make qseecomd work in recovery
+    chmod 0660 /dev/qseecom
+    chown system drmrpc /dev/qseecom
+    chmod 0664 /dev/ion
+    chown system system /dev/ion
+
+on property:ro.crypto.state=encrypted
+    start prepdecrypt
+
+on property:crypto.ready=1
+    start sbinqseecomd
+
+on property:init.svc.sbinqseecomd=running && property:sys.listeners.registered=true
+    start sbinhwservicemanager
+
+on property:init.svc.sbinqseecomd=running && property:vendor.sys.listeners.registered=true
+    start sbinhwservicemanager
+
+on property:init.svc.sbinhwservicemanager=running && property:hwservicemanager.ready=true
+    start sbinkeymaster-4-0-qti
+
+on property:ro.crypto.fs_crypto_blkdev=*
+    setprop crypto.ready 0
+    stop sbinqseecomd
+    stop sbinhwservicemanager
+    stop sbinkeymaster-4-0-qti
+
+service prepdecrypt /system/bin/prepdecrypt.sh
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
+
+service sbinqseecomd /system/bin/qseecomd
+    user root
+    group root
+    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib:/system/bin:/system/lib64
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
+
+service sbinhwservicemanager /system/bin/hwservicemanager
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
+service sbinkeymaster-4-0-qti /system/bin/hw/android.hardware.keymaster@4.0-service-qti
+    user root
+    group root
+    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib:/system/bin:/system/lib64
+    disabled
+    seclabel u:r:recovery:s0

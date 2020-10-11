@@ -4,3 +4,4 @@ ro.board.platform=msmnile
 vendor.gatekeeper.disable_spu=true
 ro.boot.dynamic_partitions=true
 ro.adb.secure=0
+ro.build.system_root_image=true

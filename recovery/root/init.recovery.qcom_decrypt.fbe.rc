@@ -1,0 +1,43 @@
+on early-fs
+    start vold
+
+on fs
+    install_keyring
+
+on property:vendor.sys.listeners.registered=true
+    start servicemanager
+    start gatekeeper-1-0
+
+on property:twrp.all.users.decrypted=true
+    setprop crypto.ready 0
+    stop sbinqseecomd
+    stop servicemanager
+    stop gatekeeper-1-0
+    stop sbinhwservicemanager
+    stop sbinkeymaster-4-0-qti
+
+service gatekeeper-1-0 /system/bin/hw/android.hardware.gatekeeper@1.0-service-qti
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
+service keystore_auth /system/bin/keystore_auth
+    oneshot
+    user system
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
+# keystore is started and stopped on demand by TWRP
+service keystore /system/bin/keystore /tmp/misc/keystore
+    user root
+    group root drmrpc readproc
+    disabled
+    seclabel u:r:recovery:s0
+
+service servicemanager /system/bin/servicemanager
+    user root
+    group root readproc
+    disabled
+    seclabel u:r:recovery:s0
